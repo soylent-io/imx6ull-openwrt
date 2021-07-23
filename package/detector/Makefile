@@ -20,7 +20,7 @@ define Package/detector
   SECTION:=tensorflow
   CATEGORY:=Examples
   TITLE:=detector
-  DEPENDS:=+libstdcpp +tensorflow +libyuv +libjpeg +librt +libpthread +gcc +libusb-1.0
+  DEPENDS:=+libstdcpp +tensorflow +libyuv +libjpeg +librt +libpthread +libusb-1.0
 endef
 
 define Package/detector/install
