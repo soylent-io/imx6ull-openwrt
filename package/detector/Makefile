@@ -28,6 +28,7 @@ define Package/detector/install
 	$(CP) $(PKG_BUILD_DIR)/models/* $(1)/etc/models
 	$(CP) $(PKG_BUILD_DIR)/models/edgetpu/* $(1)/etc/models/edgetpu
 	$(CP) $(PKG_BUILD_DIR)/models/lite/* $(1)/etc/models/lite
+	$(STRIP) $(PKG_BUILD_DIR)/detector
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/detector $(1)/usr/bin/
 endef
 
