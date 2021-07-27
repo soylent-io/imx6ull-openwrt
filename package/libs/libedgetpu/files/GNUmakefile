@@ -19,7 +19,10 @@ SRC = tflite/custom_op.cc tflite/edgetpu_context_direct.cc tflite/custom_op_data
      driver_shared/time_stamper/driver_time_stamper.cc \
      port/blocking_counter.cc port/posix_time.cc port/shared_mutex.cc port/timer_portable.cc \
      port/default/builddata.cc port/default/status_macros.cc port/default/stringprintf.cc \
-     port/default/port_from_tf/logging.cc port/default/port_from_tf/status.cc port/default/port_from_tf/statusor.cc
+     port/default/port_from_tf/logging.cc port/default/port_from_tf/status.cc port/default/port_from_tf/statusor.cc \
+     driver/beagle/beagle_kernel_top_level_handler.cc driver/beagle/beagle_pci_driver_provider.cc \
+     driver/beagle/beagle_pci_driver_provider_linux.cc driver/beagle/beagle_top_level_handler.cc \
+     driver/beagle/beagle_top_level_interrupt_manager.cc driver/beagle/beagle_usb_driver_provider.cc
 
 
 OBJ = $(SRC:.cc=.o)
