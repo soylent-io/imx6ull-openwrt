@@ -14,13 +14,13 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
-MAKE_FLAGS+= WITHOUT_RTSP=yes WITHOUT_ENCODER=yes WITH_JPEG=yes WITH_YUV=yes OPENWRT=yes WITHOUT_EDGETPU=yes
+MAKE_FLAGS+= WITHOUT_RTSP=yes WITHOUT_ENCODER=yes WITH_JPEG=yes WITH_YUV=yes OPENWRT=yes
 
 define Package/detector
   SECTION:=tensorflow
   CATEGORY:=Examples
   TITLE:=detector
-  DEPENDS:=+libstdcpp +tensorflow +libyuv +libjpeg +librt +libpthread +libusb-1.0
+  DEPENDS:=+libstdcpp +tensorflow +libyuv +libjpeg +librt +libpthread +libusb-1.0 +libedgetpu
 endef
 
 define Package/detector/install
