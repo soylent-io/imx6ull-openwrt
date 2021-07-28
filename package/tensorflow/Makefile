@@ -148,6 +148,9 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/abseil-cpp/absl/numeric/*.h $(1)/usr/include/absl/numeric
 	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/abseil-cpp/absl/numeric/*.inc $(1)/usr/include/absl/numeric
 	$(INSTALL_DIR) $(1)/usr/include/absl/numeric/internal
+	$(INSTALL_DIR) $(1)/usr/src/tensorflow/lite/c
+	$(CP) $(PKG_BUILD_DIR)/$(SOURCE_SUBDIR)/tensorflow/lite/c/common.c $(1)/usr/src/tensorflow/lite/c
+	$(CP) $(PKG_BUILD_DIR)/$(SOURCE_SUBDIR)/tensorflow/lite/util.cc $(1)/usr/src/tensorflow/lite/
 	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/abseil-cpp/absl/numeric/internal/*.h $(1)/usr/include/absl/numeric/internal
 	$(INSTALL_DIR) $(1)/etc/tensorflow $(1)/usr/lib $(1)/bin
 	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/tensorflow-lite/libtensorflow-lite.a $(1)/usr/lib
@@ -159,18 +162,7 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/flatbuffers-build/libflatbuffers.a $(1)/usr/lib
 	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/fft2d-build/libfft2d_fftsg*.a $(1)/usr/lib
 	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/farmhash-build/libfarmhash.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/strings/libabsl_str_format_internal.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/strings/libabsl_strings.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/strings/libabsl_strings_internal.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/flags/libabsl_flags_marshalling.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/types/libabsl_bad_optional_access.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/container/libabsl_raw_hash_set.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/hash/libabsl_hash.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/hash/libabsl_wyhash.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/hash/libabsl_city.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/base/libabsl_throw_delegate.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/base/libabsl_raw_logging_internal.a $(1)/usr/lib
-	$(CP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/numeric/libabsl_int128.a $(1)/usr/lib
+	$(FIND) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/_deps/abseil-cpp-build/absl/ -name '*.a' -exec $(CP) {} $(1)/usr/lib/ \;
 #	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib/
 	$(CP) ./files/* $(1)/
 	$(STRIP) $(PKG_BUILD_DIR)/$(CMAKE_BINARY_SUBDIR)/minimal

@@ -1,0 +1,43 @@
+diff --git a/makefile_build/Makefile b/makefile_build/Makefile
+index ef7d290..101d3a5 100644
+--- a/makefile_build/Makefile
++++ b/makefile_build/Makefile
+@@ -30,8 +30,8 @@ LIBEDGETPU_LDFLAGS := \
+ 	-shared \
+ 	-Wl,--soname,libedgetpu.so.1 \
+ 	-Wl,--version-script=$(BUILDROOT)/tflite/public/libedgetpu.lds \
+-	-fuse-ld=gold \
+ 	-lflatbuffers \
++	-Wl,--whole-archive \
+ 	-labsl_flags \
+ 	-labsl_flags_internal \
+ 	-labsl_flags_reflection \
+@@ -40,6 +40,28 @@ LIBEDGETPU_LDFLAGS := \
+ 	-labsl_hashtablez_sampler \
+ 	-labsl_raw_hash_set \
+ 	-labsl_str_format_internal \
++	-labsl_bad_optional_access \
++	-labsl_stacktrace \
++	-labsl_flags_config \
++	-labsl_synchronization \
++	-labsl_strings \
++	-labsl_int128 \
++	-labsl_flags_private_handle_accessor \
++	-labsl_spinlock_wait \
++	-labsl_city \
++	-labsl_flags_commandlineflag \
++	-labsl_flags_commandlineflag_internal \
++	-labsl_throw_delegate \
++	-labsl_wyhash \
++	-labsl_raw_logging_internal \
++	-labsl_time \
++	-labsl_time_zone \
++	-labsl_base \
++	-labsl_strings_internal \
++	-labsl_flags_program_name \
++	-labsl_malloc_internal \
++	-labsl_symbolize \
++	-Wl,--no-whole-archive \
+ 	-lusb-1.0
+ 
+ LIBEDGETPU_FLATC_SRCS := \
