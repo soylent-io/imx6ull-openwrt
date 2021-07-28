@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libedgetpu
-PKG_RELEASE:=0
+PKG_RELEASE:=
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/google-coral/libedgetpu.git
@@ -23,7 +23,6 @@ define Package/libedgetpu
   CATEGORY:=Libraries
   TITLE:=The Edge TPU Runtime (libedgetpu)
   DEPENDS:=+librt +libpthread +tensorflow +libusb-1.0
-  ABI_VERSION:=0
 endef
 
 MAKE_VARS+= TFROOT=$(STAGING_DIR)/usr/src

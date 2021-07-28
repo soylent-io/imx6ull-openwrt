@@ -24,7 +24,7 @@ define Package/libyuv
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=YUV scaling and conversion library
-  DEPENDS:=+libstdcpp
+  DEPENDS:=+libstdcpp +libjpeg
   ABI_VERSION:=0
 endef
 
